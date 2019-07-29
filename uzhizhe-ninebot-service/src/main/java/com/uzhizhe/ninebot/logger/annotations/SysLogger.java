@@ -1,4 +1,4 @@
-package com.uzhizhe.ninebot.web.logger.annotations;
+package com.uzhizhe.ninebot.logger.annotations;
 
 import java.lang.annotation.*;
 

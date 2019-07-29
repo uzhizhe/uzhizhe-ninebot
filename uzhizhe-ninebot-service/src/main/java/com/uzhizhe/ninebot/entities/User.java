@@ -1,14 +1,20 @@
 package com.uzhizhe.ninebot.entities;
 
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "ninebot_user")
+@Accessors(chain = true)
+@Builder
 public class User implements Serializable {
 
     private static final long serialVersionUID = -2189704378510291669L;

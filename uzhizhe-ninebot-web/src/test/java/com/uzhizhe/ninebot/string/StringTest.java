@@ -2,6 +2,7 @@ package com.uzhizhe.ninebot.string;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.uzhizhe.ninebot.entities.User;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -30,5 +31,8 @@ public class StringTest {
     public void test1() {
         log.info("my name is {} {} {}", "li", "qing", "jiang");
 
+        String s = null;
+        User user = JSON.parseObject(s, User.class);
+        System.out.println(user);
     }
 }

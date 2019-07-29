@@ -1,4 +1,4 @@
-package com.uzhizhe.ninebot.web.logger;
+package com.uzhizhe.ninebot.logger;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

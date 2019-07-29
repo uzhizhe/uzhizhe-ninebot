@@ -1,4 +1,4 @@
-package com.uzhizhe.ninebot.web.logger;
+package com.uzhizhe.ninebot.logger;
 
 import lombok.*;
 import lombok.experimental.Accessors;

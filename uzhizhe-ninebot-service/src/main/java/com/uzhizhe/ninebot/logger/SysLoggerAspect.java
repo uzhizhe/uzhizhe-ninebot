@@ -1,7 +1,7 @@
-package com.uzhizhe.ninebot.web.logger;
+package com.uzhizhe.ninebot.logger;
 
 import com.alibaba.fastjson.JSON;
-import com.uzhizhe.ninebot.web.logger.annotations.SysLogger;
+import com.uzhizhe.ninebot.logger.annotations.SysLogger;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -31,7 +31,7 @@ public class SysLoggerAspect {
     @Autowired
     private SysLoggerService sysLoggerService;
 
-    @Pointcut("@annotation(com.uzhizhe.ninebot.web.logger.annotations.SysLogger)")
+    @Pointcut("@annotation(com.uzhizhe.ninebot.logger.annotations.SysLogger)")
     public void logPointCut() {
     }
 

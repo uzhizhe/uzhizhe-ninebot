@@ -1,8 +1,8 @@
 package com.uzhizhe.ninebot.service;
 
+import com.monker.common.result.PageResult;
 import com.uzhizhe.ninebot.entities.User;
-
-import java.util.List;
+import com.uzhizhe.ninebot.entities.queries.QueryUserVo;
 
 public interface UserService {
 
@@ -10,6 +10,7 @@ public interface UserService {
 
     User findById(Integer id);
 
-    List<User> findAll();
+    PageResult<User> findAll(QueryUserVo queryUserVo);
+
 
 }

@@ -65,7 +65,10 @@
         <appender-ref ref="FILE_ERROR"/>
     </appender>-->
 
-    <!--    <logger name="org.hibernate.jpa" level="${logging.level.jpa}"/>-->
+    <!--    <logger name="org.hibernate.SQL" level="DEBUG"/>-->
+    <logger name="org.hibernate.engine.QueryParameters" level="DEBUG"/>
+    <logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG"/>
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
 
     <root level="${logging.level.default}">
         <appender-ref ref="STDOUT"/>
