@@ -7,7 +7,8 @@
     <springProperty scope="context" name="logging.level.default" source="logging.level.default"/>
     <springProperty scope="context" name="logging.level.jpa" source="logging.level.jpa"/>
     <springProperty scope="context" name="logging.level.commons" source="logging.level.commons"/>
-
+    <springProperty scope="context" name="application.name" source="application.name"/>
+    <springProperty scope="context" name="application.env" source="application.env"/>
 
     <!-- Output full logs to file -->
     <appender name="FILE_ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -65,7 +66,28 @@
         <appender-ref ref="FILE_ERROR"/>
     </appender>-->
 
+    <appender name="WX_ROBOT" class="com.monker.common.weixin.WXRobotLogAppend">
+        <!-- 日志收集最低日志级别 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <!--日志格式-->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </layout>
+        <!-- 自定义参数 -->
+        <flag>${application.name} -> ${application.env}</flag>
+        <!--微信群机器人WebHook 必填-->
+        <wxWebHook>https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=ae0d198b-fe3d-4d15-adac-550c2c2eb744</wxWebHook>
+        <mentionedList>rui.jing,liwei.cai</mentionedList>
+        <mentionedMobileList>18339922767</mentionedMobileList>
+    </appender>
+
     <!--    <logger name="org.hibernate.SQL" level="DEBUG"/>-->
+    <logger name="org.apache.http" level="INFO"/>
     <logger name="org.hibernate.engine.QueryParameters" level="DEBUG"/>
     <logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG"/>
     <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
@@ -73,5 +95,6 @@
     <root level="${logging.level.default}">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE_ALL"/>
+        <appender-ref ref="WX_ROBOT"/>
     </root>
 </configuration>
