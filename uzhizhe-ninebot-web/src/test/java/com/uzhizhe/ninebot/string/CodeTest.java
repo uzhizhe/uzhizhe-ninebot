@@ -16,6 +16,8 @@ public class CodeTest {
         int arr[] = {6, 1, 2, 3, 4, 5};
         Integer max = getMax(arr);
         System.out.println(max);
+        System.out.println(max);
+        System.out.println(max);
     }
 
     public Integer getMax(int[] a) {

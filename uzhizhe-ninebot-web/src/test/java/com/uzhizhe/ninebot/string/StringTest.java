@@ -84,6 +84,9 @@ public class StringTest {
         Integer i5 = new Integer(520);
         int i6 = 520;
 
+
+        System.out.println(i4 == i5);
+        System.out.println(i4 == i5);
         System.out.println(i4 == i5);
         System.out.println(i4 == i6);
         System.out.println(i5 == i6);

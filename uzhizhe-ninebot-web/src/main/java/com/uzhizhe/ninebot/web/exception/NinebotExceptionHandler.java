@@ -42,7 +42,15 @@ public class NinebotExceptionHandler {
 
     @ExceptionHandler({Exception.class})
     public ResponseDto handleException(Exception e) {
-        log.error("Unknown exception:", e.getMessage());
+        log.error("UnknownException", e);
         return ResponseDto.error(e.getMessage());
     }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseDto handleRuntimeException(RuntimeException e) {
+        log.error("RuntimeException:", e);
+        return ResponseDto.error(e.getMessage());
+    }
+
+
 }
