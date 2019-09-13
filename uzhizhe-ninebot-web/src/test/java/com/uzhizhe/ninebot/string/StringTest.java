@@ -75,21 +75,11 @@ public class StringTest {
         Integer i2 = new Integer(110);
         int i3 = 110;
 
+
+        Integer.valueOf(100);
         System.out.println(i1 == i2);
         System.out.println(i1 == i3);
         System.out.println(i2 == i3);
-
-        System.out.println();
-        Integer i4 = 520;
-        Integer i5 = new Integer(520);
-        int i6 = 520;
-
-
-        System.out.println(i4 == i5);
-        System.out.println(i4 == i5);
-        System.out.println(i4 == i5);
-        System.out.println(i4 == i6);
-        System.out.println(i5 == i6);
 
 
     }

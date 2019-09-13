@@ -3,7 +3,7 @@ package com.uzhizhe.ninebot.webservice;
 import com.monker.common.result.PageResult;
 import com.uzhizhe.ninebot.entities.User;
 import com.uzhizhe.ninebot.entities.queries.QueryUserVo;
-import com.uzhizhe.ninebot.service.UserService;
+import com.uzhizhe.ninebot.service.user.UserService;
 import com.uzhizhe.ninebot.web.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -5,7 +5,7 @@ import com.monker.common.utils.StringUtil;
 import com.uzhizhe.ninebot.TestApplication;
 import com.uzhizhe.ninebot.dao.cache.RedisCacheService;
 import com.uzhizhe.ninebot.entities.User;
-import com.uzhizhe.ninebot.service.UserService;
+import com.uzhizhe.ninebot.service.user.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

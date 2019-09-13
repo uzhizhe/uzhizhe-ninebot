@@ -14,4 +14,12 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     Page<User> findAll(Specification<User> specification, Pageable pageable);
 
     List<User> findAll(Specification<User> specification);
+
+    /**
+     * find first by id
+     *
+     * @param id
+     * @return
+     */
+    User findFirstById(Integer id);
 }

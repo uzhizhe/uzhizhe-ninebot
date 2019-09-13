@@ -1,4 +1,4 @@
-package com.uzhizhe.ninebot.service;
+package com.uzhizhe.ninebot.service.user;
 
 import com.monker.common.result.PageResult;
 import com.uzhizhe.ninebot.entities.User;

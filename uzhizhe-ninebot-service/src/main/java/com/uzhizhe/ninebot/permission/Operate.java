@@ -1,4 +1,4 @@
-package com.uzhizhe.ninebot.logger.annotations;
+package com.uzhizhe.ninebot.permission;
 
 import java.lang.annotation.*;
 
@@ -11,6 +11,6 @@ import java.lang.annotation.*;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface SysLogger {
-    String value() default "";
+public @interface Operate {
+    EOperateType value() default EOperateType.Unknown;
 }

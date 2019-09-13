@@ -6,11 +6,11 @@ import java.lang.annotation.*;
  * @Author qingjiang.li
  * @Email qingjiang.li@ninebot.com
  * @Date 2019-08-07
- * @Desc SysLogger 环绕通知使用注解
+ * @Desc SysBeforeNotice 前置通知
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface SysLogger {
+public @interface SysExceptionNotice {
     String value() default "";
 }

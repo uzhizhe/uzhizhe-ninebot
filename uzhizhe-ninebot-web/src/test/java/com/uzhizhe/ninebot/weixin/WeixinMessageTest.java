@@ -37,6 +37,7 @@ public class WeixinMessageTest extends TestApplication {
         log.info("Test info logger");
         log.debug("Test debug logger");
 
+        
     }
 
 

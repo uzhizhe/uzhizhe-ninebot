@@ -3,6 +3,7 @@ package com.uzhizhe.ninebot.web.exception;
 import com.monker.common.exception.ErrorServiceException;
 import com.monker.common.exception.NormalServiceException;
 import com.monker.common.result.ResponseDto;
+import com.uzhizhe.ninebot.exceptions.UserException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.json.JsonParseException;
@@ -52,5 +53,10 @@ public class NinebotExceptionHandler {
         return ResponseDto.error(e.getMessage());
     }
 
+    @ExceptionHandler(UserException.class)
+    public ResponseDto handleUserException(UserException e) {
+        log.error("UserException:", e);
+        return ResponseDto.error(e.getMessage());
+    }
 
 }

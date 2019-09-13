@@ -5,10 +5,7 @@ import com.uzhizhe.ninebot.logger.annotations.SysLogger;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -61,6 +58,20 @@ public class SysLoggerAspect {
         }
 
 
+    }
+
+    @After("logPointCut()")
+    public void after(JoinPoint joinPoint) throws Throwable {
+        try {
+            Object[] args = joinPoint.getArgs();
+            log.info("{} -> {} parameters:{}",
+                    joinPoint.getTarget().getClass().getSimpleName(),
+                    joinPoint.getSignature().getName(),
+                    JSON.toJSONString(args));
+        } catch (Exception e) {
+            String s = joinPoint.toString();
+            log.info("joinPoint toString:{}", s);
+        }
     }
 
     private void saveLoger(ProceedingJoinPoint joinPoint, long time) {

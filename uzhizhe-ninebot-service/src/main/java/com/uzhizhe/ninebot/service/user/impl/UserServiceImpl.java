@@ -1,4 +1,4 @@
-package com.uzhizhe.ninebot.service.impl;
+package com.uzhizhe.ninebot.service.user.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.monker.common.result.PageResult;
@@ -6,9 +6,10 @@ import com.uzhizhe.ninebot.dao.UserRepository;
 import com.uzhizhe.ninebot.entities.User;
 import com.uzhizhe.ninebot.entities.queries.QueryUserVo;
 import com.uzhizhe.ninebot.logger.annotations.SysLogger;
-import com.uzhizhe.ninebot.service.UserService;
+import com.uzhizhe.ninebot.service.user.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -29,8 +30,11 @@ import java.util.Optional;
 @Slf4j
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    @Value("#{'${test.id.list}'.split(',')}")
+    private List<String> idList;
+
+    //@Value("${test.id.list}")
+    //private String idList;
 
     @Override
     public User add(User user) {
@@ -40,8 +44,12 @@ public class UserServiceImpl implements UserService {
         return save;
     }
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public User findById(Integer id) {
+        log.info("idList:{}", idList);
         Optional<User> optional = userRepository.findById(id);
         return optional.get();
     }
