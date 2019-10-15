@@ -23,8 +23,10 @@ public class UserOperateModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false, name = "operate_name", columnDefinition = "varchar(64) comment '操作名称'")
+    @Column(nullable = false, name = "operate_name", columnDefinition = "varchar(64) comment '操作中文名称'")
     private String operateName;
+    @Column(nullable = false, name = "operate_en_name", columnDefinition = "varchar(64) comment '操作英文名称'")
+    private String operateEnName;
     @Column(nullable = false, name = "permission_code", columnDefinition = "int(11) comment '操作权限值'")
     private Integer permissionCode;
     @Column(nullable = false, columnDefinition = "varchar(64) comment '创建者'")

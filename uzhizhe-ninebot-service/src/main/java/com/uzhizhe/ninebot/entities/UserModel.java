@@ -19,7 +19,6 @@ import java.util.Date;
 @org.hibernate.annotations.Table(appliesTo = "scooter_user", comment = "用户信息表")
 public class UserModel implements Serializable {
 
-
     private static final long serialVersionUID = -1743955620937112460L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

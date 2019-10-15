@@ -23,7 +23,7 @@ public class UserRoleModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false, name = "role_name", columnDefinition = "varchar(64) comment '角色名称,Robot:0, Admin, Operator, User, Visitor'")
+    @Column(nullable = false, unique = true, name = "role_name", columnDefinition = "varchar(64) comment '角色名称,Robot:0, Admin, Operator, User, Visitor'")
     private String roleName;
     @Column(nullable = false, name = "role_permission_code", columnDefinition = "int(11) comment '角色权限值'")
     private Integer rolePermissionCode;
