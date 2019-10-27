@@ -22,4 +22,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
      * @return
      */
     User findFirstById(Integer id);
+
+
 }

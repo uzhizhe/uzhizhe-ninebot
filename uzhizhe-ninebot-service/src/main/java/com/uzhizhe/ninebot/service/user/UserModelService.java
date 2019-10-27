@@ -8,5 +8,6 @@ public interface UserModelService {
 
     UserModel query(String name);
 
+    int updateUsernameById(String username, Integer id);
 
 }

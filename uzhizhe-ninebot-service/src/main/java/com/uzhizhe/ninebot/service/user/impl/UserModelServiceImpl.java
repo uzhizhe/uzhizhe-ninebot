@@ -7,6 +7,7 @@ import com.uzhizhe.ninebot.permission.EUserType;
 import com.uzhizhe.ninebot.service.user.UserModelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @Desc user model service impl
@@ -29,5 +30,11 @@ public class UserModelServiceImpl implements UserModelService {
     public UserModel query(String username) {
         UserModel userModel = userModelRepository.findFirstByUsernameAndStatusAndType(username, EUserStatus.Normal.getId(), EUserType.User.name());
         return userModel;
+    }
+
+    @Override
+    @Transactional
+    public int updateUsernameById(String username, Integer id) {
+        return userModelRepository.updateUser(username, id);
     }
 }
