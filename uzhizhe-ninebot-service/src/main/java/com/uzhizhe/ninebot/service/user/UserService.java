@@ -6,7 +6,7 @@ import com.uzhizhe.ninebot.entities.queries.QueryUserVo;
 
 public interface UserService {
 
-    User add(User user);
+    User add(User user) throws Exception;
 
     User findById(Integer id);
 

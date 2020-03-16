@@ -4,6 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.uzhizhe.ninebot.entities.AAA;
 import org.junit.Test;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.*;
 
 /**
@@ -88,5 +91,43 @@ public class JavaTest {
 
     }
 
+
+    @Test
+    public void test93() {
+        LocalDate localDate = LocalDate.now();
+        int dayOfYear = localDate.getDayOfYear();
+        Month month = localDate.getMonth();
+        int value = month.getValue();
+        int year = localDate.getYear();
+        int dayOfYear1 = localDate.getDayOfYear();
+        int dayOfMonth = localDate.getDayOfMonth();
+        DayOfWeek dayOfWeek = localDate.getDayOfWeek();
+        int value1 = dayOfWeek.getValue();
+        int number = 31 + 28 + 31 +
+                30 + 31 + 30 +
+                31 + 31 + 30 +
+                31 + 8;
+
+        System.out.println(localDate);
+        System.out.println(dayOfYear);
+        System.out.println(month);
+        System.out.println(value);
+        System.out.println(year);
+        System.out.println(dayOfYear1);
+        System.out.println(dayOfMonth);
+        System.out.println(dayOfWeek);
+        System.out.println(value1);
+        System.out.println(number);
+
+        LocalDate localDate1 = localDate.plusDays(1);
+        int dayOfMonth1 = localDate1.getDayOfMonth();
+        System.out.println(dayOfMonth1);
+
+        LocalDate localDate2 = localDate.plusMonths(1);
+        Month month1 = localDate2.getMonth();
+        System.out.println(month1);
+
+
+    }
 
 }

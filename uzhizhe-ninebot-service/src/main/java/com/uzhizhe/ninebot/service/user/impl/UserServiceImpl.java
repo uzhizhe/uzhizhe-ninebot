@@ -16,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -33,19 +34,22 @@ public class UserServiceImpl implements UserService {
     @Value("#{'${test.id.list}'.split(',')}")
     private List<String> idList;
 
-    //@Value("${test.id.list}")
-    //private String idList;
+    @Autowired
+    private UserRepository userRepository;
 
+    //@Value("${test.id.list}")
+
+    //    @Transactional(rollbackFor = RuntimeException.class)
     @Override
-    public User add(User user) {
+    @Transactional(rollbackFor = Exception.class)
+    public User add(User user) throws Exception {
         User save = userRepository.save(user);
         log.info("user : {}", JSON.toJSONString(user));
         log.info("save : {}", JSON.toJSONString(save));
         return save;
     }
+    //private String idList;
 
-    @Autowired
-    private UserRepository userRepository;
 
     @Override
     public User findById(Integer id) {

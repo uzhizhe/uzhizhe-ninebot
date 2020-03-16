@@ -25,7 +25,7 @@ public class UserWebService {
     @Autowired
     private UserService userService;
 
-    public void add(UserVo userVo) {
+    public void add(UserVo userVo) throws Exception {
         //校验参数
 
         //拼装参数

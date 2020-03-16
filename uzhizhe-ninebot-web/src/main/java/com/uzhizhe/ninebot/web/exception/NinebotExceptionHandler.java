@@ -7,8 +7,10 @@ import com.uzhizhe.ninebot.exceptions.UserException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.json.JsonParseException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import java.net.BindException;
 
@@ -16,6 +18,19 @@ import java.net.BindException;
 public class NinebotExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(NinebotExceptionHandler.class);
+
+    @ExceptionHandler({MethodArgumentNotValidException.class})
+    public ResponseDto MethodArgumentNotValidException(MethodArgumentNotValidException e) {
+        log.warn("MethodArgumentNotValidException:{}", e.getMessage());
+        return ResponseDto.error(e.getBindingResult().getFieldError().getDefaultMessage());
+    }
+
+    @ExceptionHandler(NoHandlerFoundException.class)
+    public ResponseDto handlerNoFoundException(Exception e) {
+        log.error(e.getMessage(), e);
+        return ResponseDto.error("路径不存在，请检查路径是否正确");
+    }
+
 
     @ExceptionHandler({NormalServiceException.class})
     public ResponseDto handleNormalServiceException(NormalServiceException e) {
